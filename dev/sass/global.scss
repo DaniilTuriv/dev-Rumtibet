@@ -36,6 +36,28 @@ select {
     font-family: variables.$font-primary;
 }
 
+input {
+    padding: 16px 16px;
+    border: 1px solid #e1e3e4; 
+    border-radius: 8px; 
+    background: transparent;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    &::placeholder {
+        color: variables.$brand-light-color;
+    }
+}
+
+label {
+    color: variables.$brand-light-color;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
 img,
 picture,
 video,
@@ -119,6 +141,25 @@ p {
 
 footer {
     margin-top: auto;
+}
+
+.input-box {
+    align-items: center;
+    display: flex;
+    label {
+        margin-left: -36px;
+        cursor: pointer;
+    }
+    &:hover {
+        .date-input {
+            &::placeholder {
+                color: variables.$text-accent-color;
+            }
+            + label {
+                color: variables.$text-accent-color;
+            }
+        }
+    }
 }
 
 ::selection {

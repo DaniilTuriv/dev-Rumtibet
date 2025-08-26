@@ -11,7 +11,7 @@
                         <figurecaption>$primary-color: #1A3E3E;</figurecaption>
                     </figure>
                 </li>
-                <li class="ui-item">                    
+                <li class="ui-item">
                     <figure>
                         <div style="width: 150px; height: 150px; background-color: #F3F5F4; border: 1px solid;"></div>
                         <figurecaption>$bg-color: #F3F5F4;</figurecaption>
@@ -74,8 +74,18 @@
             <h5>Lorem ipsum dolor sit.</h5>
             <h6>Lorem ipsum dolor sit.</h6>
         </div>
-        <div class="ui-item">
+        <div class="ui-item" style="background: url(./assets/img/banner.png) center / cover;">
             <h4>inputs</h4>
+            <form style="padding: 48px; border-radius: 10px; backdrop-filter: blur(6px); background-color: #ffffff33;">
+                <div class="input-box">
+                    <input type="text" placeholder="Дата похода" class="date-input" id="calendar">
+                    <label for="calendar">
+                        <svg>
+                            <use href="#icon-date"></use>
+                        </svg>
+                    </label>
+                </div>
+            </form>
         </div>
         <div class="ui-item">
             <h4>selects</h4>
@@ -86,15 +96,16 @@
     </div>
 </main>
 <style>
-    .ui-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 12px;
-    }
-    
-    .ui-item {
-        border: 1px solid #5e5e5e;
-        padding: 24px;
-    }
+.ui-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.ui-item {
+    border: 1px solid #5e5e5e;
+    padding: 24px;
+}
+
 </style>
 @@include('templates/footer.html')

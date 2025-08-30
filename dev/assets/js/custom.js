@@ -12,3 +12,6 @@ new AirDatepicker('#calendar', {
     buttons: [button, 'clear'], // Custom button, and pre-installed 'clear' button
     position: "top center"
 })
+
+NiceSelect.bind(document.getElementById("location-select"), {searchable: true, placeholder: 'Локация для тура', searchtext: 'zoek', selectedtext: 'geselecteerd'});
+NiceSelect.bind(document.getElementById("member-select"), {searchable: false, placeholder: 'Участники', searchtext: 'zoek', selectedtext: 'geselecteerd'});

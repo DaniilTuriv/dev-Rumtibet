@@ -30,3 +30,8 @@ $h6-line-height: 111%;
 h1 {
     font-family: $font-secondary;
 }
+
+@mixin background-blur {
+    background-color: #ffffff30;
+    backdrop-filter: blur(6px);
+}

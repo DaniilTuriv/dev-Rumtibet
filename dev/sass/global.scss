@@ -139,16 +139,31 @@ p {
     margin-bottom: 1rem;
 }
 
+i, 
+em {
+    font-style: italic;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
 footer {
     margin-top: auto;
 }
 
 .input-box {
-    align-items: center;
     display: flex;
+    flex-direction: column;
+    position: relative;
     label {
-        margin-left: -36px;
         cursor: pointer;
+        &.label-icon {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+        }
     }
     &:hover {
         .date-input {
@@ -159,6 +174,37 @@ footer {
                 color: variables.$text-accent-color;
             }
         }
+    }
+}
+
+.nice-select {
+    color: #fdfdfd;
+    height: 58px;
+    padding: 0 36px 0 16px;
+    border: 1px solid #e1e3e4;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 58px;
+    &:after {
+        border-bottom: 2px solid #fdfdfd;
+        border-right: 2px solid #fdfdfd;
+        height: 11px;
+        margin-top: -8px;
+        right: 16px;
+        width: 11px;
+    }
+    .nice-select-dropdown {
+        @include variables.background-blur;
+    }
+    .option:hover,
+    .option.focus,
+    .option.selected.focus {
+        @include variables.background-blur;
+    }
+    &.open + label {
+        opacity: 0;
     }
 }
 

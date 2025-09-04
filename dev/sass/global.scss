@@ -19,7 +19,7 @@ body {
     text-rendering: optimizeSpeed;
     font-size: variables.$font-size-base;
     background: variables.$bg-color;
-    color: variables.$barnd-dark-color;
+    color: variables.$brand-dark-color;
     font-family: variables.$font-primary;
     display: flex;
     flex-direction: column;
@@ -43,7 +43,7 @@ input {
     background: transparent;
     font-weight: 700;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
     &::placeholder {
         color: variables.$brand-light-color;
     }
@@ -151,6 +151,46 @@ strong {
 
 footer {
     margin-top: auto;
+}
+
+.btn {
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    padding: 13px 26px;
+    border: 1px solid transparent;
+    display: inline-block;
+    transition: 0.5s;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.btn_primary {
+        border-color: variables.$primary-color;
+        background-color: variables.$primary-color;
+        color: variables.$brand-light-color;
+        &:hover {
+            background-color: variables.$brand-light-color;
+            color: variables.$primary-color;
+            border-color: variables.$primary-color;
+        }
+    }
+
+    &.btn-lg {
+        padding: 17px 38.8px;
+    }
+
+    &.btn_secondary {
+        border-color: variables.$brand-light-color;
+        background-color: variables.$brand-light-color;
+        color: variables.$primary-color;
+        &:hover {
+            background-color: variables.$primary-color;
+            color: variables.$brand-light-color;
+            border-color: variables.$primary-color;
+        }        
+    }
 }
 
 .input-box {

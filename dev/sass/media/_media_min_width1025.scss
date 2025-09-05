@@ -1,3 +1,11 @@
 @media (min-width: 1025px) {
+    .header-burger {
+        display: none;
+    }
 
+    .header__mobile-container {
+        display: flex;
+        gap: 38px;
+        margin-left: auto;
+    }
 }

@@ -190,14 +190,7 @@ footer {
     }
 
     &.btn_secondary {
-        border-color: variables.$brand-light-color;
-        background-color: variables.$brand-light-color;
-        color: variables.$primary-color;
-        &:hover {
-            background-color: variables.$primary-color;
-            color: variables.$brand-light-color;
-            border-color: variables.$primary-color;
-        }        
+        @include variables.btn-secondary;      
     }
 }
 
@@ -254,6 +247,14 @@ footer {
     &.open + label {
         opacity: 0;
     }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.d-none {
+    display: none;
 }
 
 ::selection {

@@ -27,11 +27,18 @@ $h4-line-height: 1.33;
 $h5-line-height: 1.2;
 $h6-line-height: 1.11;
 
-h1 {
-    font-family: $font-secondary;
-}
-
 @mixin background-blur {
     background-color: #ffffff30;
     backdrop-filter: blur(6px);
+}
+
+@mixin btn_secondary {
+    border-color: $brand-light-color;
+    background-color: $brand-light-color;
+    color: $primary-color;
+    &:hover {
+        background-color: $primary-color;
+        color: $brand-light-color;
+        border-color: $primary-color;
+    } 
 }

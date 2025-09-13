@@ -1,6 +1,33 @@
 @use 'variables'as variables;
 
 .first-screen {
-    min-height: 985px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 82px;
+    height: max(100vh, 985px);
+    height: 100vh;
+    max-height: 985px;
     background: url(./assets/img/banner.png) center / cover no-repeat;
+    letter-spacing: 1px;
+
+    &__title {
+        color: variables.$brand-light-color;
+        font-family: variables.$font-secondary;
+        font-weight: 700;
+        margin-bottom: 41px;
+    }
+
+    &__form {
+        display: flex;
+        align-items: start;
+        gap: 24px;
+        padding: 39px 42px;
+        border-radius: 10px;
+        backdrop-filter: blur(6px);
+        background-color: #ffffff33;
+    }
+
+    .input-box:last-child {
+        max-width: 213px;
+    } 
 }

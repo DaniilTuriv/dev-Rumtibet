@@ -1,0 +1,85 @@
+<div class="modal">
+    <button type="button" class="close-modal" id="close-modal">
+        <svg class="close-modal__svg">
+            <use href="#icon-close-modal"></use>
+        </svg>
+    </button>
+    <form class="first-screen-form modal__first-screen-form">
+        <div class="input-box">
+            <select name="locations" id="location-select" class="hidden-select">
+                <option value="kyiv">Киев</option>
+                <option value="lviv">Львов</option>
+                <option value="odesa">Одеса</option>
+                <option value="dnepr">Днепр</option>
+                <option value="kharkov">Харьков</option>
+                <option value="kherson">Херсон</option>
+                <option value="sumi">Сумы</option>
+                <option value="carpatians">Карпаты</option>
+                <option value="uzhhorod">Ужгород</option>
+            </select>
+            <div class="nice-select" tabindex="0">
+                <span class="current">Локация для тура</span>
+                <div class="nice-select-dropdown">
+
+                    <div class="nice-select-search-box">
+                        <input type="text" class="nice-select-search" placeholder="zoek..." title="search">
+                    </div>
+
+                    <ul class="list">
+                        <li data-value="kyiv" class="option">Киев</li>
+                        <li data-value="lviv" class="option">Львов</li>
+                        <li data-value="odesa" class="option">Одеса</li>
+                        <li data-value="dnepr" class="option">Днепр</li>
+                        <li data-value="kharkov" class="option">Харьков</li>
+                        <li data-value="kherson" class="option">Херсон</li>
+                        <li data-value="sumi" class="option">Сумы</li>
+                        <li data-value="carpatians" class="option">Карпаты</li>
+                        <li data-value="uzhhorod" class="option">Ужгород</li>
+                    </ul>
+                </div>
+            </div>
+
+            <label for="location-select">выберите из списка</label>
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="Дата похода" class="date-input" id="calendar">
+            <label for="calendar" class="label-icon">
+                <svg>
+                    <use href="#icon-date"></use>
+                </svg>
+            </label>
+            <label for="calendar">укажите диапазон</label>
+        </div>
+        <div class="input-box">
+            <select name="members" id="member-select" class="hidden-select">
+                <option value="4">4 человека</option>
+                <option value="5">5 человек</option>
+                <option value="6">6 человек</option>
+                <option value="7">7 человек</option>
+                <option value="8">8 человек</option>
+                <option value="9">9 человек</option>
+                <option value="more">больше 10 человек</option>
+            </select>
+            <div class="nice-select" tabindex="0">
+                <span class="current">Участники</span>
+                <div class="nice-select-dropdown">
+
+                    <ul class="list">
+                        <li data-value="4" class="option">4 человека</li>
+                        <li data-value="5" class="option">5 человек</li>
+                        <li data-value="6" class="option">6 человек</li>
+                        <li data-value="7" class="option">7 человек</li>
+                        <li data-value="8" class="option">8 человек</li>
+                        <li data-value="9" class="option">9 человек</li>
+                        <li data-value="more" class="option">больше 10 человек</li>
+                    </ul>
+                </div>
+            </div>
+
+            <label for="member-select">минимум 4 человека</label>
+        </div>
+        <div class="input-box">
+            <button type="submit" class="btn btn_secondary btn_lg">Найти программу</button>
+        </div>
+    </form>
+</div>

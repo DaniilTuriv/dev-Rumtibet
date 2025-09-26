@@ -1,6 +1,7 @@
 @use 'variables'as variables;
 
 .about {
+    background-color: variables.$bg-accent-color;
     padding: 100px 0;
 }
 

@@ -34,6 +34,27 @@
 }
 
 .about__content {
+    padding-top: 64px;
     max-width: 580px;
     width: 100%;
+}
+
+.about__top-title {
+    color: variables.$text-accent-color;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.about__title {
+    color: variables.$brand-dark-color;
+    font-weight: 800;
+    margin-bottom: 38px;
+}
+
+.about__description {
+    color: variables.$brand-dark-color;
+    margin-bottom: 40px;
+    font-size: 18px;
 }

@@ -7,13 +7,13 @@
     height: max(100vh, 985px);
     max-height: 985px;
     background: url(./assets/img/banner.png) center / cover no-repeat;
-    letter-spacing: 1px;
 
     &__title {
         color: variables.$brand-light-color;
         font-family: variables.$font-secondary;
         font-weight: 700;
         margin-bottom: 41px;
+        letter-spacing: 1px;
     }
 
     &-form {

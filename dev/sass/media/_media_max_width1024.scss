@@ -75,11 +75,11 @@
             margin-bottom: 31px;
             letter-spacing: 0px;
         }
-   
-        &-form {
-            display: none;
-        }
+    }
 
+    .first-screen-form,
+    .offers-images {
+        display: none;
     }
 
     .modal__first-screen-form {
@@ -155,5 +155,22 @@
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 24px;
+    }
+
+    .offers {
+        padding: 50px 0;
+    }
+
+    .offers__container {
+        display: block;
+    }
+
+    .offers__template-title {
+        margin-bottom: 32px;
+    }
+
+    .offers-advanteges {
+        gap: 32px;
+        margin-bottom: 32px;
     }
 }

@@ -26,6 +26,18 @@ if (document.querySelector('select')) {
         searchtext: 'zoek',
         selectedtext: 'geselecteerd'
     });
+    NiceSelect.bind(document.getElementById("modal-location-select"), {
+        searchable: true,
+        placeholder: 'Локация для тура',
+        searchtext: 'zoek',
+        selectedtext: 'geselecteerd'
+    });
+    NiceSelect.bind(document.getElementById("modal-member-select"), {
+        searchable: false,
+        placeholder: 'Участники',
+        searchtext: 'zoek',
+        selectedtext: 'geselecteerd'
+    });
 }
 
 const forEach = function(t, o, r) {

@@ -1,16 +1,17 @@
 @use 'variables'as variables;
 
 .modal {
+    @include variables.background-blur;
     position: fixed;
     inset: 0;
     z-index: -10;
     opacity: 0;
     transition: opacity 0.5s, z-index 0.5s;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(6px);
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     &.show {
         opacity: 1;
@@ -18,7 +19,8 @@
     }
 
     .nice-select,
-    input {
+    input,
+    textarea {
         max-width: 100%;
     }
 
@@ -27,7 +29,37 @@
     }
 }
 
-#close-modal {
+.modal-template {
+    &.show {    
+        background-color: #85bcff80;
+    }
+
+    &__title,
+    &__subtitle {
+        color: variables.$primary-color;
+    }
+
+    .input-box {
+        input,
+        textarea {
+            color: variables.$brand-dark-color;
+        }
+    }
+}
+
+.template-form-wrapper {
+    @include variables.background-blur;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    padding: 36px 36px 48px;
+}
+
+.template-form {
+    display: grid;
+    gap: 24px;
+}
+
+.close-modal {
     border: none;
     background-color: transparent;
     position: absolute;

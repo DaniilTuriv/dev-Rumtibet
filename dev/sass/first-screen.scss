@@ -20,10 +20,16 @@
         display: flex;
         align-items: start;
         gap: 24px;
-        padding: 42px 42px;
+        padding: 39px 42px;
         border-radius: 10px;
         backdrop-filter: blur(6px);
         background-color: #ffffff33;
+    }
+
+    .input-box {
+        label:not(.label-icon) {
+            padding-top: 9px;
+        }
     }
 
     .input-box:last-child {

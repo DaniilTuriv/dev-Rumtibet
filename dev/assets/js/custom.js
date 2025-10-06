@@ -13,6 +13,11 @@ new AirDatepicker('#calendar', {
     position: "top center"
 })
 
+new AirDatepicker('#mobile-calendar', {
+    buttons: [button, 'clear'], // Custom button, and pre-installed 'clear' button
+    position: "top center"
+})
+
 if (document.querySelector('select')) {
     NiceSelect.bind(document.getElementById("location-select"), {
         searchable: true,
@@ -40,7 +45,7 @@ if (document.querySelector('select')) {
     });
 }
 
-const forEach = function(t, o, r) {
+const forEach = function (t, o, r) {
     if ("[object Object]" === Object.prototype.toString.call(t))
         for (var c in t) Object.prototype.hasOwnProperty.call(t, c) && o.call(r, t[c], c, t);
     else
@@ -52,11 +57,24 @@ const burgerMenu = document.querySelector('.header__mobile-container');
 const body = document.querySelector('body');
 
 if (hamburgers.length > 0) {
-    forEach(hamburgers, function(hamburger) {
-        hamburger.addEventListener("click", function() {
+    forEach(hamburgers, function (hamburger) {
+        hamburger.addEventListener("click", function () {
             this.classList.toggle("is-active");
             burgerMenu.classList.toggle("show");
             body.classList.toggle("overflow-hidden");
         }, false);
     });
 }
+
+const inputTel = document.querySelectorAll('[type=tel]')
+
+inputTel.forEach(item => {
+    const inputId = item.id
+    
+    IMask(
+        document.getElementById(inputId),
+        {
+            mask: '+{38}(000)000-00-00'
+        }
+    )
+})

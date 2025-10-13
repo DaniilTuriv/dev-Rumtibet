@@ -6,46 +6,74 @@
                     <use href="#icon-close-modal"></use>
                 </svg>
             </button>
-            <div class="input-box">
-                <select name="locations" id="modal-location-select" class="hidden-select">
-                    <option value="kyiv">Киев</option>
-                    <option value="lviv">Львов</option>
-                    <option value="odesa">Одеса</option>
-                    <option value="dnepr">Днепр</option>
-                    <option value="kharkov">Харьков</option>
-                    <option value="kherson">Херсон</option>
-                    <option value="sumi">Сумы</option>
-                    <option value="carpatians">Карпаты</option>
-                    <option value="uzhhorod">Ужгород</option>
-                </select>
-                <label for="modal-location-select">выберите из списка</label>
+            <div class="steps">
+                <div class="steps__first-step">
+                    <div class="input-box">
+                        <select name="locations" id="modal-location-select" class="hidden-select" data-changed="false">
+                            <option value="" selected disabled>Локация для тура</option>
+                            <option value="Киев">Киев</option>
+                            <option value="Львов">Львов</option>
+                            <option value="Одеса">Одеса</option>
+                            <option value="Днепр">Днепр</option>
+                            <option value="Харьков">Харьков</option>
+                            <option value="Херсон">Херсон</option>
+                            <option value="Сумы">Сумы</option>
+                            <option value="Карпаты">Карпаты</option>
+                            <option value="Ужгород">Ужгород</option>
+                        </select>
+                        <label for="modal-location-select">выберите из списка</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" placeholder="Дата похода" class="date-input" id="mobile-calendar"
+                            data-changed="false">
+                        <label for="mobile-calendar" class="label-icon">
+                            <svg>
+                                <use href="#icon-date"></use>
+                            </svg>
+                        </label>
+                        <label for="mobile-calendar">укажите диапазон</label>
+                    </div>
+                    <div class="input-box">
+                        <select name="members" id="modal-member-select" class="hidden-select" data-changed="false">
+                            <option value="" selected disabled>Участники</option>
+                            <option value="4">4 человека</option>
+                            <option value="5">5 человек</option>
+                            <option value="6">6 человек</option>
+                            <option value="7">7 человек</option>
+                            <option value="8">8 человек</option>
+                            <option value="9">9 человек</option>
+                            <option value="больше 10 человек">больше 10 человек</option>
+                        </select>
+                        <label for="modal-member-select">минимум 4 человека</label>
+                    </div>
+                </div>
+                <div class="steps__second-step steps__second-step_hidden">
+                    <div class="input-box">
+                        <label for="program-user-name">Имя</label>
+                        <input type="text" inputmode="text" name="program-user-name" id="program-user-name" placeholder="Введите ваше имя">
+                    </div>
+                    <div class="input-box">
+                        <label for="program-telephone">Телефон</label>
+                        <input type="tel" inputmode="tel" name="program-telephone" id="program-telephone" placeholder="+380">
+                    </div>
+                    <div class="input-box">
+                        <label for="program-e-mail">Почта</label>
+                        <input type="email" inputmode="email" name="program-e-mail" id="program-e-mail" placeholder="Введите ваш почтовый адрес">
+                    </div>
+                    <div class="input-box">
+                        <textarea name="program-letter" id="program-data" placeholder="Сопроводительное письмо"></textarea>
+                    </div>
+                </div>
+                <div class="steps__nav">
+                    <button type="button" class="btn btn_secondary btn_step-first">step 1</button>
+                    <button type="button" class="btn btn_secondary btn_step-second">step 2</button>
+                </div>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Дата похода" class="date-input" id="mobile-calendar">
-                <label for="mobile-calendar" class="label-icon">
-                    <svg>
-                        <use href="#icon-date"></use>
-                    </svg>
-                </label>
-                <label for="mobile-calendar">укажите диапазон</label>
+                <div class="message message__hidden"></div>
             </div>
             <div class="input-box">
-                <select name="members" id="modal-member-select" class="hidden-select">
-                    <option value="4">4 человека</option>
-                    <option value="5">5 человек</option>
-                    <option value="6">6 человек</option>
-                    <option value="7">7 человек</option>
-                    <option value="8">8 человек</option>
-                    <option value="9">9 человек</option>
-                    <option value="more">больше 10 человек</option>
-                </select>
-                <label for="modal-member-select">минимум 4 человека</label>
-            </div>
-            <div class="input-box">
-                <button type="submit" class="btn btn_secondary btn_lg">Найти программу</button>
-            </div>
-            <div class="input-box">
-                <button type="button" data-close-modal class="btn btn_secondary btn_lg">Закрыть модальное окно</button>
+                <button type="button" class="btn btn_secondary btn_lg" id="submit-button">Продолжить</button>
             </div>
         </form>
     </div>
@@ -60,11 +88,13 @@
                 </svg>
             </button>
             <h2 class="modal-template__title">Оставить заявку</h2>
-            <h5 class="modal-template__subtitle">Заполните форму ниже и наш менеджер свяжется с вами в ближайшее время!</h5>
+            <h5 class="modal-template__subtitle">Заполните форму ниже и наш менеджер свяжется с вами в ближайшее время!
+            </h5>
             <form class="template-form">
                 <div class="input-box">
                     <label for="user-name">Имя</label>
-                    <input type="text" inputmode="text" name="user-name" id="request-user-name" placeholder="Введите ваше имя">
+                    <input type="text" inputmode="text" name="user-name" id="request-user-name"
+                        placeholder="Введите ваше имя">
                 </div>
                 <div class="input-box">
                     <label for="telephone">Телефон</label>
@@ -72,7 +102,8 @@
                 </div>
                 <div class="input-box">
                     <label for="e-mail">Почта</label>
-                    <input type="email" inputmode="email" name="e-mail" id="request-e-mail" placeholder="Введите ваш почтовый адрес">
+                    <input type="email" inputmode="email" name="e-mail" id="request-e-mail"
+                        placeholder="Введите ваш почтовый адрес">
                 </div>
                 <div class="input-box">
                     <textarea name="letter" id="request-data" placeholder="Сопроводительное письмо"></textarea>
@@ -106,7 +137,8 @@
                 </div>
                 <div class="input-box">
                     <label for="e-mail">Почта</label>
-                    <input type="email" inputmode="email" name="e-mail" id="e-mail" placeholder="Введите ваш почтовый адрес">
+                    <input type="email" inputmode="email" name="e-mail" id="e-mail"
+                        placeholder="Введите ваш почтовый адрес">
                 </div>
                 <div class="input-box">
                     <textarea name="letter" id="letter" placeholder="Сопроводительное письмо"></textarea>

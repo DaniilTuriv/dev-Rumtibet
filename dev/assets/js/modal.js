@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
     const initModal = () => {
-        const trigerModalButton = document.querySelectorAll('[data-triger-modal]')
+        const triggerModalButton = document.querySelectorAll('[data-trigger-modal]')
         const ButtonCloseModal = document.querySelectorAll('[data-close-modal]')
         const modal = document.querySelectorAll('.modal');
 
@@ -16,8 +16,8 @@ window.addEventListener("load", () => {
         }
 
         //function open modal
-        trigerModalButton.forEach(item => {
-            const itemAttr = item.getAttribute('data-triger-modal')
+        triggerModalButton.forEach(item => {
+            const itemAttr = item.getAttribute('data-trigger-modal')
             item.addEventListener("click", () => {
                 const modal = document.getElementById(itemAttr)
                 openModal(modal)
@@ -36,5 +36,5 @@ window.addEventListener("load", () => {
         })
     }
 
-    document.querySelector('[data-triger-modal]') ? initModal() : null
+    document.querySelector('[data-trigger-modal]') ? initModal() : null
 })

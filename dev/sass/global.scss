@@ -252,6 +252,12 @@ footer {
     }
 }
 
+button[disabled] {
+    background-color: #a9a9a9;
+    border-color: #a9a9a9;
+    color: #777777;
+}
+
 .input-box {
     display: flex;
     flex-direction: column;

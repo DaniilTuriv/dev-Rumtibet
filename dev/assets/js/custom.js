@@ -1,8 +1,8 @@
 let button = {
-    content: 'Select 2021-07-26',
+    content: '2025-10-09',
     className: 'custom-button-classname',
     onClick: (dp) => {
-        let date = new Date('2021-07-26');
+        let date = new Date('2025-10-09');
         dp.selectDate(date);
         dp.setViewDate(date);
     }

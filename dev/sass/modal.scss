@@ -100,26 +100,33 @@
 }
 
 .message {
-    border: 1px solid variables.$bg-accent-color;
-    border-radius: 2px;
     color: #f00;
+    font-size: 12px;
     font-weight: 600;
-    padding: 12px;
+    padding: 0 0 0 10px;
     max-width: 230px;
     width: 100%;
-    transition: border-color 0.5s, line-height 1s, opacity 1s;
+    transition: line-height 1s, opacity 1s;
     line-height: 1.4;
     opacity: 1;
 }
 
-.message__hidden {
-    border-color: transparent;
-    border-width: 0;
-    padding: 0;
-    line-height: 0;
-    opacity: 0;
-}
-
 .message__valid {
     color: #0f0;
+}
+
+.error-field [data-required-field],
+.error-field .nice-select {
+    background-color: #ff000030;
+    border-color: #ff000030;
+    box-shadow: 0 0 15px -1px #ff1414e6;
+    transition: box-shadow 0.3s, background-color 1s, border-color 1s;
+}
+
+.valid-field [data-required-field],
+.valid-field .nice-select {
+    background-color: #00ff0030;
+    border-color: #00ff0030;
+    box-shadow: 0 0 15px -1px #1bde1bd0;
+    transition: box-shadow 0.3s, background-color 1s, border-color 1s;
 }

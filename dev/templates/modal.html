@@ -1,6 +1,6 @@
 <div class="modal" id="show-program">
     <div class="modal-body">
-        <form class="first-screen-form modal__first-screen-form">
+        <form class="first-screen-form modal__first-screen-form" id="program-form">
             <button type="button" class="close-modal" data-close-modal>
                 <svg class="close-modal__svg">
                     <use href="#icon-close-modal"></use>
@@ -9,7 +9,7 @@
             <div class="steps">
                 <div class="steps__first-step">
                     <div class="input-box">
-                        <select name="locations" id="modal-location-select" class="hidden-select" data-changed="false">
+                        <select name="locations" class="hidden-select" id="modal-location-select" data-required-field data-changed="false">
                             <option value="" selected disabled>Локация для тура</option>
                             <option value="Киев">Киев</option>
                             <option value="Львов">Львов</option>
@@ -24,8 +24,7 @@
                         <label for="modal-location-select">выберите из списка</label>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Дата похода" class="date-input" id="mobile-calendar"
-                            data-changed="false">
+                        <input type="text" placeholder="Дата похода" class="date-input" id="mobile-calendar" data-required-field data-changed="false">
                         <label for="mobile-calendar" class="label-icon">
                             <svg>
                                 <use href="#icon-date"></use>
@@ -34,7 +33,7 @@
                         <label for="mobile-calendar">укажите диапазон</label>
                     </div>
                     <div class="input-box">
-                        <select name="members" id="modal-member-select" class="hidden-select" data-changed="false">
+                        <select name="members" id="modal-member-select" class="hidden-select" data-required-field data-changed="false">
                             <option value="" selected disabled>Участники</option>
                             <option value="4">4 человека</option>
                             <option value="5">5 человек</option>
@@ -50,15 +49,15 @@
                 <div class="steps__second-step steps__second-step_hidden">
                     <div class="input-box">
                         <label for="program-user-name">Имя</label>
-                        <input type="text" inputmode="text" name="program-user-name" id="program-user-name" placeholder="Введите ваше имя">
+                        <input type="text" inputmode="text" name="program-user-name" id="program-user-name" data-required-field placeholder="Введите ваше имя">
                     </div>
                     <div class="input-box">
                         <label for="program-telephone">Телефон</label>
-                        <input type="tel" inputmode="tel" name="program-telephone" id="program-telephone" placeholder="+380">
+                        <input type="tel" inputmode="tel" name="program-telephone" id="program-telephone" data-required-field placeholder="+380">
                     </div>
                     <div class="input-box">
                         <label for="program-e-mail">Почта</label>
-                        <input type="email" inputmode="email" name="program-e-mail" id="program-e-mail" placeholder="Введите ваш почтовый адрес">
+                        <input type="email" inputmode="email" name="program-e-mail" id="program-e-mail" data-required-field placeholder="Введите ваш почтовый адрес">
                     </div>
                     <div class="input-box">
                         <textarea name="program-letter" id="program-data" placeholder="Сопроводительное письмо"></textarea>
@@ -68,9 +67,6 @@
                     <button type="button" class="btn btn_secondary btn_step-first">step 1</button>
                     <button type="button" class="btn btn_secondary btn_step-second">step 2</button>
                 </div>
-            </div>
-            <div class="input-box">
-                <div class="message message__hidden"></div>
             </div>
             <div class="input-box">
                 <button type="button" class="btn btn_secondary btn_lg" id="submit-button">Продолжить</button>
@@ -90,7 +86,7 @@
             <h2 class="modal-template__title">Оставить заявку</h2>
             <h5 class="modal-template__subtitle">Заполните форму ниже и наш менеджер свяжется с вами в ближайшее время!
             </h5>
-            <form class="template-form">
+            <form class="template-form" id="request-form">
                 <div class="input-box">
                     <label for="user-name">Имя</label>
                     <input type="text" inputmode="text" name="user-name" id="request-user-name"

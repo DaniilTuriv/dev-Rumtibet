@@ -39,7 +39,6 @@ const modalLocationSelect = document.querySelector('#modal-location-select')
 const mobileCalendar = document.querySelector('#mobile-calendar')
 const modalMemberSelect = document.querySelector('#modal-member-select')
 const submitButton = document.querySelector('#submit-button')
-const message = document.querySelector('.message')
 const stepsNav = document.querySelector('.steps__nav')
 const stepNavButtonFirst = document.querySelector('.btn_step-first')
 const stepNavButtonSecond = document.querySelector('.btn_step-second')
@@ -48,51 +47,51 @@ const layoutStepSecond = document.querySelector('.steps__second-step')
 const requiredFieldStepFirst = layoutStepFirst.querySelectorAll('[data-required-field]')
 const requiredFieldStepSecond = layoutStepSecond.querySelectorAll('[data-required-field]')
 
+const formConfig = {
+    errorMessage: "Усі поля обов'язкові. Будь ласка, заповніть поля.",
+    validMessage: "Обов'язкове поле заповнене ✓"
+}
+
 const createErrorMsg = (field) => {
     field.closest(".input-box").classList.add("error-field")
     field.closest(".input-box").classList.remove("valid-field")
-    const errorMsg = `<div class="message">Усі поля обов'язкові. Будь ласка, заповніть поля.</div>`
+    const errorMsg = `<div class="message">${formConfig.errorMessage}</div>`
     const message = field.closest('.input-box').querySelector('.message')
     message ? null : field.closest(".input-box").insertAdjacentHTML("beforeend", errorMsg)
+    if (message) {
+        message.classList.remove('message__valid')
+        message.innerHTML = formConfig.errorMessage
+    } else {
+        null
+    }
 }
 
 const destroyErrorMsg = (field) => {
     field.closest('.input-box').classList.remove("error-field")
     field.closest(".input-box").classList.add("valid-field")
     const message = field.closest('.input-box').querySelector('.message')
-    message ? message.remove() : null
+    if (message) {
+        message.classList.add('message__valid')
+        message.innerHTML = formConfig.validMessage
+    } else {
+        const validMsg = `<div class="message message__valid">${formConfig.validMessage}</div>`
+        field.closest(".input-box").insertAdjacentHTML("beforeend", validMsg)
+    }
 }
 
 requiredFieldStepFirst.forEach(field => {
     field.addEventListener('change', () => {
-        field.closest('.input-box').classList.add("valid-field")
-        destroyErrorMsg(field)
-
-        if (!field.value) {
-            field.closest('.input-box').classList.remove("valid-field")
-            field.closest(".input-box").classList.add("error-field")
-            createErrorMsg(field)
-        }
+        field.value === "" ? createErrorMsg(field) : destroyErrorMsg(field)        
     })
 })
 
 const errorMessage = () => {
-    message.classList.remove('message__hidden')
-    message.classList.remove('message__valid')
-    message.innerHTML = formConfig.errorMessage
+    requiredFieldStepFirst.forEach(field => {
+        field.value === "" ? createErrorMsg(field) : destroyErrorMsg(field)
+    })
 }
 
-const validMessage = () => {
-    message.classList.remove('message__hidden')
-    message.classList.add('message__valid')
-    message.innerHTML = formConfig.validMessage
-    setTimeout(removeValidMessage, 2000)
-}
-
-const removeValidMessage = () => {
-    message.classList.add('message__hidden')
-    message.innerHTML = formConfig.emptyMessage
-}
+const layoutStepTwo = document.querySelector('.steps__second-step')
 
 const showNav = () => {
     stepsNav.classList.add('steps__nav_show')
@@ -100,24 +99,24 @@ const showNav = () => {
 
 const showFirstStep = () => {
     layoutStepFirst.classList.remove('steps__second-step_hidden')
-    layoutStepTwo.classList.add('steps__second-step_hidden')
+    layoutStepSecond.classList.add('steps__second-step_hidden')
 }
 
 const showSecondStep = () => {
     layoutStepFirst.classList.add('steps__second-step_hidden')
-    layoutStepTwo.classList.remove('steps__second-step_hidden')
+    layoutStepSecond.classList.remove('steps__second-step_hidden')
 }
 
 stepNavButtonFirst.addEventListener('click', showFirstStep)
 stepNavButtonSecond.addEventListener('click', showSecondStep)
 
 const stepSecond = () => {
-    validMessage()
     showNav()
     showSecondStep()
 }
 
 const checkedValue = () => {
+    errorMessage()
     if (modalLocationSelect.value === "" || mobileCalendar.value === "" || modalMemberSelect.value === "") {
         errorMessage()
     } else {

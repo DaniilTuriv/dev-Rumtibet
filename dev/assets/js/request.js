@@ -44,13 +44,37 @@ const stepsNav = document.querySelector('.steps__nav')
 const stepNavButtonFirst = document.querySelector('.btn_step-first')
 const stepNavButtonSecond = document.querySelector('.btn_step-second')
 const layoutStepFirst = document.querySelector('.steps__first-step')
-const layoutStepTwo = document.querySelector('.steps__second-step')
+const layoutStepSecond = document.querySelector('.steps__second-step')
+const requiredFieldStepFirst = layoutStepFirst.querySelectorAll('[data-required-field]')
+const requiredFieldStepSecond = layoutStepSecond.querySelectorAll('[data-required-field]')
 
-const formConfig = {
-    emptyMessage: "",
-    errorMessage: "Усі поля обов'язкові. Будь ласка, заповніть поля.",
-    validMessage: "Усі обов'язкові поля заповнені ✓"
+const createErrorMsg = (field) => {
+    field.closest(".input-box").classList.add("error-field")
+    field.closest(".input-box").classList.remove("valid-field")
+    const errorMsg = `<div class="message">Усі поля обов'язкові. Будь ласка, заповніть поля.</div>`
+    const message = field.closest('.input-box').querySelector('.message')
+    message ? null : field.closest(".input-box").insertAdjacentHTML("beforeend", errorMsg)
 }
+
+const destroyErrorMsg = (field) => {
+    field.closest('.input-box').classList.remove("error-field")
+    field.closest(".input-box").classList.add("valid-field")
+    const message = field.closest('.input-box').querySelector('.message')
+    message ? message.remove() : null
+}
+
+requiredFieldStepFirst.forEach(field => {
+    field.addEventListener('change', () => {
+        field.closest('.input-box').classList.add("valid-field")
+        destroyErrorMsg(field)
+
+        if (!field.value) {
+            field.closest('.input-box').classList.remove("valid-field")
+            field.closest(".input-box").classList.add("error-field")
+            createErrorMsg(field)
+        }
+    })
+})
 
 const errorMessage = () => {
     message.classList.remove('message__hidden')

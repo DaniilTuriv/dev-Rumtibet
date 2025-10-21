@@ -77,6 +77,11 @@ const destroyErrorMsg = (field) => {
         const validMsg = `<div class="message message__valid">${formConfig.validMessage}</div>`
         field.closest(".input-box").insertAdjacentHTML("beforeend", validMsg)
     }
+    
+    setTimeout(function() {
+        const message = field.closest('.input-box').querySelector('.message')
+        message.remove()
+    }, 2000)
 }
 
 requiredFieldStepFirst.forEach(field => {

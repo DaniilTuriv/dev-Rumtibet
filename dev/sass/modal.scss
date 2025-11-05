@@ -81,6 +81,7 @@
 
 .steps__nav_show {
     display: grid;
+    margin-bottom: 24px;
 }
 
 .steps__first-step,
@@ -129,4 +130,12 @@
     border-color: #00ff0030;
     box-shadow: 0 0 15px -1px #1bde1bd0;
     transition: box-shadow 0.3s, background-color 1s, border-color 1s;
+}
+
+.input-box label:not(.label-icon):before {
+    content: "*";
+    position: absolute;
+    color: variables.$text-accent-color;
+    top: 0;
+    left: 0;
 }

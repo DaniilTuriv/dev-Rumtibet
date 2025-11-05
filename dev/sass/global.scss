@@ -265,6 +265,7 @@ button[disabled] {
     width: 100%;
 
     label {
+        position: relative;
         cursor: pointer;
         font-size: 14px;
         padding: 0 0 0 10px;

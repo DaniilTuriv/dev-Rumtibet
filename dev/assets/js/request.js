@@ -38,6 +38,9 @@ triggerRequest.addEventListener("click", setValue)
 const modalLocationSelect = document.querySelector('#modal-location-select')
 const mobileCalendar = document.querySelector('#mobile-calendar')
 const modalMemberSelect = document.querySelector('#modal-member-select')
+const programUserName = document.querySelector('#program-user-name')
+const programEMail = document.querySelector('#program-e-mail')
+const programTelephone = document.querySelector('#program-telephone')
 const submitButton = document.querySelector('#submit-button')
 const stepsNav = document.querySelector('.steps__nav')
 const stepNavButtonFirst = document.querySelector('.btn_step-first')
@@ -47,15 +50,18 @@ const layoutStepSecond = document.querySelector('.steps__second-step')
 const requiredFieldStepFirst = layoutStepFirst.querySelectorAll('[data-required-field]')
 const requiredFieldStepSecond = layoutStepSecond.querySelectorAll('[data-required-field]')
 
+submitButton.setAttribute('data-checked-button', '1')
+const submitButtonFirstStep = document.querySelector('[data-checked-button="1"]')
+
 const formConfig = {
     errorMessage: "Усі поля обов'язкові. Будь ласка, заповніть поля.",
     validMessage: "Обов'язкове поле заповнене ✓"
 }
 
-const createErrorMsg = (field) => {
+const createErrorMsg = (field, text) => {
     field.closest(".input-box").classList.add("error-field")
     field.closest(".input-box").classList.remove("valid-field")
-    const errorMsg = `<div class="message">${formConfig.errorMessage}</div>`
+    const errorMsg = `<div class="message">${text}</div>`
     const message = field.closest('.input-box').querySelector('.message')
     message ? null : field.closest(".input-box").insertAdjacentHTML("beforeend", errorMsg)
     if (message) {
@@ -66,7 +72,7 @@ const createErrorMsg = (field) => {
     }
 }
 
-const destroyErrorMsg = (field) => {
+const destroyErrorMsg = (field, text) => {
     field.closest('.input-box').classList.remove("error-field")
     field.closest(".input-box").classList.add("valid-field")
     const message = field.closest('.input-box').querySelector('.message')
@@ -74,25 +80,38 @@ const destroyErrorMsg = (field) => {
         message.classList.add('message__valid')
         message.innerHTML = formConfig.validMessage
     } else {
-        const validMsg = `<div class="message message__valid">${formConfig.validMessage}</div>`
+        const validMsg = `<div class="message message__valid">${text}</div>`
         field.closest(".input-box").insertAdjacentHTML("beforeend", validMsg)
     }
-    
-    setTimeout(function() {
-        const message = field.closest('.input-box').querySelector('.message')
-        message.remove()
-    }, 2000)
 }
 
 requiredFieldStepFirst.forEach(field => {
     field.addEventListener('change', () => {
-        field.value === "" ? createErrorMsg(field) : destroyErrorMsg(field)        
+        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
     })
 })
 
-const errorMessage = () => {
-    requiredFieldStepFirst.forEach(field => {
-        field.value === "" ? createErrorMsg(field) : destroyErrorMsg(field)
+requiredFieldStepSecond.forEach(field => {
+    field.addEventListener('input', () => {
+        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
+    })
+})
+
+const errorMessageStepFirst = (arr) => {
+    arr.forEach(field => {
+        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
+        field.addEventListener('change', () => {
+            field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
+        })
+    })
+}
+
+const errorMessageStepSecond = (arr) => {
+    arr.forEach(field => {
+        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
+        field.addEventListener('input', () => {
+            field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
+        })
     })
 }
 
@@ -103,13 +122,18 @@ const showNav = () => {
 }
 
 const showFirstStep = () => {
+    submitButton.setAttribute('data-checked-button', '1')
     layoutStepFirst.classList.remove('steps__second-step_hidden')
     layoutStepSecond.classList.add('steps__second-step_hidden')
 }
 
 const showSecondStep = () => {
-    layoutStepFirst.classList.add('steps__second-step_hidden')
-    layoutStepSecond.classList.remove('steps__second-step_hidden')
+    if (modalLocationSelect.value === "" || mobileCalendar.value === "" || modalMemberSelect.value === "") {
+        errorMessageStepFirst(requiredFieldStepFirst)
+    } else {
+        layoutStepFirst.classList.add('steps__second-step_hidden')
+        layoutStepSecond.classList.remove('steps__second-step_hidden')
+    }
 }
 
 stepNavButtonFirst.addEventListener('click', showFirstStep)
@@ -118,15 +142,25 @@ stepNavButtonSecond.addEventListener('click', showSecondStep)
 const stepSecond = () => {
     showNav()
     showSecondStep()
+    submitButton.setAttribute('data-checked-button', '2')
+    const submitButtonSecondStep = document.querySelector('[data-checked-button="2"]')
+    submitButtonSecondStep.addEventListener('click', () => {
+        if (programUserName.value === "" || programEMail.value === "" || programTelephone.value === "") {
+            errorMessageStepSecond(requiredFieldStepSecond)
+        }
+    })
+    
+    if (modalLocationSelect.value !== "" && mobileCalendar.value !== "" && modalMemberSelect.value !== "" && programUserName.value !== "" && programEMail.value !== "" && programTelephone.value !== "") {
+        submitButton.setAttribute('type', 'submit')
+    }
 }
 
 const checkedValue = () => {
-    errorMessage()
     if (modalLocationSelect.value === "" || mobileCalendar.value === "" || modalMemberSelect.value === "") {
-        errorMessage()
+        errorMessageStepFirst(requiredFieldStepFirst)
     } else {
         stepSecond()
     }
 }
 
-submitButton.addEventListener('click', checkedValue)
+submitButtonFirstStep.addEventListener('click', checkedValue)

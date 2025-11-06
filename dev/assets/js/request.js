@@ -13,19 +13,16 @@ const requestConfig = {
 locationSelect.addEventListener("change", () => {
     let value = locationSelect.value
     requestConfig.location = value
-    console.log(requestConfig)
 })
 
 calendarInput.addEventListener("change", () => {
     let value = calendarInput.value
     requestConfig.date = value
-    console.log(requestConfig)
 })
 
 memberSelect.addEventListener("change", () => {
     let value = memberSelect.value
     requestConfig.member = value
-    console.log(requestConfig)
 })
 
 const setValue = () => {
@@ -85,33 +82,17 @@ const destroyErrorMsg = (field, text) => {
     }
 }
 
-requiredFieldStepFirst.forEach(field => {
-    field.addEventListener('change', () => {
-        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
-    })
-})
-
-requiredFieldStepSecond.forEach(field => {
-    field.addEventListener('input', () => {
-        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
-    })
-})
-
-const errorMessageStepFirst = (arr) => {
+const validatorFieldsEvent = (arr, event) => {
     arr.forEach(field => {
-        field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
-        field.addEventListener('change', () => {
+        field.addEventListener(event, () => {
             field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
         })
     })
 }
 
-const errorMessageStepSecond = (arr) => {
+const validatorFieldsBtn = (arr) => {
     arr.forEach(field => {
         field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
-        field.addEventListener('input', () => {
-            field.value === "" ? createErrorMsg(field, formConfig.errorMessage) : destroyErrorMsg(field, formConfig.validMessage)
-        })
     })
 }
 
@@ -129,7 +110,7 @@ const showFirstStep = () => {
 
 const showSecondStep = () => {
     if (modalLocationSelect.value === "" || mobileCalendar.value === "" || modalMemberSelect.value === "") {
-        errorMessageStepFirst(requiredFieldStepFirst)
+        validatorFieldsBtn(requiredFieldStepFirst)
     } else {
         layoutStepFirst.classList.add('steps__second-step_hidden')
         layoutStepSecond.classList.remove('steps__second-step_hidden')
@@ -146,7 +127,7 @@ const stepSecond = () => {
     const submitButtonSecondStep = document.querySelector('[data-checked-button="2"]')
     submitButtonSecondStep.addEventListener('click', () => {
         if (programUserName.value === "" || programEMail.value === "" || programTelephone.value === "") {
-            errorMessageStepSecond(requiredFieldStepSecond)
+            validatorFieldsBtn(requiredFieldStepSecond)
         }
     })
     
@@ -157,10 +138,12 @@ const stepSecond = () => {
 
 const checkedValue = () => {
     if (modalLocationSelect.value === "" || mobileCalendar.value === "" || modalMemberSelect.value === "") {
-        errorMessageStepFirst(requiredFieldStepFirst)
+        validatorFieldsBtn(requiredFieldStepFirst)
     } else {
+        validatorFieldsEvent(requiredFieldStepSecond, 'input')
         stepSecond()
     }
 }
 
+validatorFieldsEvent(requiredFieldStepFirst, 'change')
 submitButtonFirstStep.addEventListener('click', checkedValue)

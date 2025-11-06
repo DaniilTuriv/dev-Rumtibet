@@ -265,7 +265,6 @@ button[disabled] {
     width: 100%;
 
     label {
-        position: relative;
         cursor: pointer;
         font-size: 14px;
         padding: 0 0 0 10px;
@@ -273,8 +272,12 @@ button[disabled] {
         &.label-icon {
             position: absolute;
             top: 17px;
-            right: 15px;
+            right: 42px;
             padding: 0;
+
+            &_mobile {
+                right: 16px;
+            }
         }
     }
 

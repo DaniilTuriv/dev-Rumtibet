@@ -132,10 +132,14 @@
     transition: box-shadow 0.3s, background-color 1s, border-color 1s;
 }
 
-.input-box label:not(.label-icon):before {
-    content: "*";
-    position: absolute;
-    color: variables.$text-accent-color;
-    top: 0;
-    left: 0;
+[data-required-field]~label {
+    position: relative;
+
+    &:not(.label-icon):before {
+        content: "*";
+        position: absolute;
+        color: variables.$text-accent-color;
+        top: 0;
+        left: 0;
+    }
 }

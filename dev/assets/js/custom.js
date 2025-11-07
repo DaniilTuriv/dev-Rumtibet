@@ -78,3 +78,14 @@ inputTel.forEach(item => {
         }
     )
 })
+
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 20,
+  speed: 1000,
+  autoplay: {
+    delay: 5000
+  },
+});

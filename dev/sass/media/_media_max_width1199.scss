@@ -12,4 +12,12 @@
     .popular-info__subtitle {
         margin-bottom: 28px;
     }
+
+    .blog-item {
+        flex-direction: column;
+
+        &__content-box {
+            flex: 1 0 225px;
+        }
+    }
 }

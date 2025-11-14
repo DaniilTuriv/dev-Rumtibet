@@ -1,1 +1,77 @@
 @use 'variables'as variables;
+
+.blog {
+    @include variables.section-padding;
+    background-color: variables.$bg-color;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+}
+
+.blog-item {
+    display: flex;
+    gap: 24px;
+    background-color: variables.$brand-light-color;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 #18121e1f;
+    padding: 16px;
+
+    &__image-box {
+        flex: 0 1 230px;
+    }
+
+    &__image {
+        border-radius: 6px;
+        height: 100%;
+        max-height: 280px;
+        object-fit: cover;
+    }
+
+    &__content-box {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 294px;
+        padding: 16px 0;
+        max-height: 280px;
+    }
+
+    &__title {
+        color: variables.$brand-dark-color;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.33;
+    }
+
+    &__description {
+        color: variables.$brand-dark-color;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
+        text-overflow: ellipsis;
+    }
+
+    &-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.42;
+
+        &__date {
+            color: variables.$text-accent-color;
+        }
+
+        &__link {
+            color: variables.$primary-color;
+            cursor: pointer;
+        }
+    }
+}

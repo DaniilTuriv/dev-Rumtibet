@@ -70,7 +70,7 @@ const inputTel = document.querySelectorAll('[type=tel]')
 
 inputTel.forEach(item => {
     const inputId = item.id
-    
+
     IMask(
         document.getElementById(inputId),
         {
@@ -80,12 +80,33 @@ inputTel.forEach(item => {
 })
 
 const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  loop: true,
-  slidesPerView: 3,
-  spaceBetween: 20,
-  speed: 1000,
-  autoplay: {
-    delay: 5000
-  },
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 1000,
+    autoplay: {
+        delay: 5000
+    },
+
+    pagination: {
+        el: '.swiper-popular-pagination',
+        clickable: 'true',
+    },
+
+    navigation: {
+        nextEl: '.swiper-popular-button-next',
+        prevEl: '.swiper-popular-button-prev',
+    },
+
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1025: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+    },
 });

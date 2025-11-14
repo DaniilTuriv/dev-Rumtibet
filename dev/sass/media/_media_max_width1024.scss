@@ -23,13 +23,13 @@
             background-color: variables.$primary-color;
             padding: 82px 16px 50px;
             display: none;
-    
+
             .btn {
                 max-width: 320px;
                 width: 100%;
                 margin: auto auto 0;
                 @include variables.btn-secondary;
-    
+
                 &:hover {
                     background-color: transparent;
                     border-color: variables.$brand-light-color;
@@ -50,7 +50,7 @@
             font-size: 14px;
             display: flex;
             align-items: center;
-    
+
             svg {
                 display: inline-block;
                 width: 6px;
@@ -70,7 +70,7 @@
         min-height: 612px;
         padding-bottom: 50px;
 
-       &__title {
+        &__title {
             font-size: 28px;
             margin-bottom: 31px;
             letter-spacing: 0px;
@@ -87,8 +87,10 @@
         flex-direction: column;
         background-color: variables.$primary-color;
         border: 1px solid variables.$bg-accent-color;
+
         .btn {
             cursor: pointer;
+
             &:hover {
                 border-color: variables.$brand-light-color;
             }
@@ -101,7 +103,7 @@
 
     .about {
         padding: 50px 0;
-        
+
         &__container {
             flex-direction: column-reverse;
             gap: 40px;
@@ -140,11 +142,11 @@
         display: flex;
         flex-direction: column;
 
-            .btn {
-                margin: 0 auto;
-                padding: 13px 24px;
-            }
+        .btn {
+            margin: 0 auto;
+            padding: 13px 24px;
         }
+    }
 
     .template-top-title {
         font-size: 16px;
@@ -165,18 +167,48 @@
 
     .offers {
         padding: 50px 0;
+
+        &__container {
+            display: block;
+        }
+
+        &__template-title {
+            margin-bottom: 32px;
+        }
+
+        &-advanteges {
+            gap: 32px;
+            margin-bottom: 32px;
+        }
     }
 
-    .offers__container {
-        display: block;
+    .swiper_popular {
+        max-width: 680px;
     }
 
-    .offers__template-title {
-        margin-bottom: 32px;
+    .swiper-slide_popular {
+        height: 450px;
     }
 
-    .offers-advanteges {
-        gap: 32px;
-        margin-bottom: 32px;
+    .popular-info {
+        height: 86px;
+
+        &__title {
+            font-size: 22px;
+        }
+
+        &__subtitle {
+            margin-bottom: 26px;
+        }
+
+        &__price {
+            font-size: 18px;
+            top: 20px;
+        }
+
+        &__description {
+            --description-height: 215px;
+            max-height: var(--description-height);
+        }
     }
 }

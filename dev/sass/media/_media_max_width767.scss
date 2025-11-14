@@ -1,5 +1,15 @@
 @use '../variables' as variables;
 
 @media screen and (max-width: 767px) {
+    .popular-info {
 
+        &__title {
+            font-size: 20px;
+            --text-padding: 86px;
+        }
+
+        &__subtitle {
+            --text-padding: 86px;
+        }
+    }
 }

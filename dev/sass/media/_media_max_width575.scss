@@ -1,5 +1,42 @@
 @use '../variables' as variables;
 
 @media screen and (max-width: 575px) {
-    
+    .swiper_popular {
+        max-width: 285px;
+    }
+
+    .swiper-slide_popular {
+        height: 400px;
+    }
+
+    .popular-info {
+        height: 70px;
+        padding: 20px 24px;
+
+        &__title {
+            --text-padding: 88px;
+            font-size: 18px;
+        }
+
+        &__subtitle {
+            --text-padding: 88px;
+            margin-bottom: 18px;
+        }
+
+        &__price {
+            font-size: 16px;
+            padding: 6px 12px;
+            width: 67px;
+            height: 30px;
+        }
+
+        &__description {
+            font-size: 14px;
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        height: 30px;
+    }
 }

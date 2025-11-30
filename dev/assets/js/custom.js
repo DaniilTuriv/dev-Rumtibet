@@ -79,7 +79,7 @@ inputTel.forEach(item => {
     )
 })
 
-const swiper = new Swiper('.swiper', {
+const swiperPopular = new Swiper('.swiper-popular', {
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
@@ -110,3 +110,41 @@ const swiper = new Swiper('.swiper', {
         },
     },
 });
+
+function initBlog() {
+	const breakpoint = window.matchMedia("(min-width:768px)");
+
+	let swiperBlog;
+
+	const breakpointChecker = function () {
+		if (breakpoint.matches === true) {
+			if (swiperBlog !== undefined) {
+                swiperBlog.destroy(true, true);
+            }
+			return;
+		} else if (breakpoint.matches === false) {
+			return enableSwiper();
+		}
+	};
+
+	const enableSwiper = function () {
+		swiperBlog = new Swiper(".swiper-blog", {
+			slidesPerView: 1,
+			speed: 1000,
+			loop: true,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: '.swiper-blog-button-next',
+				prevEl: '.swiper-blog-button-prev',
+			},
+            pagination: {
+                el: '.swiper-blog-pagination',
+                clickable: 'true',
+            },
+		});
+	};
+	breakpoint.addEventListener("change", breakpointChecker);
+	breakpointChecker();
+}
+
+initBlog();

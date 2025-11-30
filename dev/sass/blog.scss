@@ -5,12 +5,6 @@
     background-color: variables.$bg-color;
 }
 
-.blog-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 20px;
-}
-
 .blog-item {
     display: flex;
     gap: 24px;
@@ -75,3 +69,7 @@
         }
     }
 }
+
+// .swiper-slide_blog {
+//     width: 100%;
+// }

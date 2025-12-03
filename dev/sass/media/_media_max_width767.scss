@@ -12,4 +12,13 @@
             --text-padding: 86px;
         }
     }
+
+    .blog-item {
+        flex-direction: row;
+    }
+
+    .gallery-grid {
+        display: flex;
+        gap: 0;
+    }
 }

@@ -1,1 +1,64 @@
-@use 'variables'as variables;
+@use 'variables' as variables;
+
+.gallery {
+    @include variables.section-padding;
+    background-color: variables.$bg-accent-color;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid__item {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/img/icon-zoom.png") center no-repeat #00000022;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+}
+
+.gallery-grid__item_1 {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.gallery-grid__item_2 {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.gallery-grid__item_3 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.gallery-grid__item_4 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.gallery-grid__item_5 {
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.gallery-grid__item_6 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.gallery-img {
+    border-radius: 6px;
+    width: 100%;
+    min-height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+}

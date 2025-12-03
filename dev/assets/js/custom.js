@@ -148,3 +148,39 @@ function initBlog() {
 }
 
 initBlog();
+
+function initGallery() {
+	const breakpoint = window.matchMedia("(min-width:768px)");
+
+	let swiperGallery;
+
+	const breakpointChecker = function () {
+		if (breakpoint.matches === true) {
+			if (swiperGallery !== undefined) swiperGallery.destroy(true, true);
+			return;
+		} else if (breakpoint.matches === false) {
+			return enableSwiper();
+		}
+	};
+
+	const enableSwiper = function () {
+		swiperGallery = new Swiper(".swiper-gallery", {
+			slidesPerView: 1,
+			speed: 1000,
+			loop: true,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: '.swiper-gallery-button-next',
+				prevEl: '.swiper-gallery-button-prev',
+			},
+            pagination: {
+                el: '.swiper-gallery-pagination',
+                clickable: 'true',
+            },
+		});
+	};
+	breakpoint.addEventListener("change", breakpointChecker);
+	breakpointChecker();
+}
+
+initGallery()

@@ -184,6 +184,7 @@ footer {
     border: 1px solid transparent;
     display: inline-block;
     transition: 0.5s;
+    white-space: nowrap;
 
     &:hover {
         text-decoration: none;

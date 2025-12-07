@@ -1,1 +1,80 @@
 @use 'variables'as variables;
+
+.subscription {
+    @include variables.container;
+    display: flex;
+    justify-content: space-between;
+    gap: 36px;
+    background-color: variables.$brand-light-color;
+    box-shadow: 0 0 15px 0 rgba(24, 18, 30, 0.12);
+    border-radius: 6px;
+    margin: 100px auto -80px;
+    padding: 40px 100px;
+    position: relative;
+    z-index: 10;
+
+    &__title-box {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    &__template-title {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 0;
+    }
+
+    &__template-top-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+        line-height: 1.11;
+    }
+
+    &__form-box {
+        width: 100%;
+        max-width: 536px;
+    }
+
+    &-form {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        margin-bottom: 8px;
+
+        &__input {
+            background-color: variables.$bg-color;
+            border: none;
+            border-radius: 4px;
+            color: variables.$brand-dark-color;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.42;
+            max-width: initial;
+            padding: 12px;
+
+            &::placeholder {
+                color: #18121e77;
+            }
+        }
+
+        .input-box {
+            max-width: 280px;
+        }
+
+        label {
+            color: variables.$brand-dark-color;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+            padding-left: 0;
+            margin-bottom: 8px;
+        }
+    }
+
+    &-info {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.28;
+        margin-bottom: 0;
+    }
+}

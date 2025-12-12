@@ -24,4 +24,9 @@
             align-self: center;
         }
     }
+
+    .subscription {
+        width: calc(100% - 96px);
+        padding: 40px 48px;
+    }
 }

@@ -118,9 +118,7 @@ function initBlog() {
 
 	const breakpointChecker = function () {
 		if (breakpoint.matches === true) {
-			if (swiperBlog !== undefined) {
-                swiperBlog.destroy(true, true);
-            }
+			if (swiperBlog !== undefined) swiperBlog.destroy(true, true);
 			return;
 		} else if (breakpoint.matches === false) {
 			return enableSwiper();

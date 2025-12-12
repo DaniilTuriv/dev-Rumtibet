@@ -1,5 +1,118 @@
 @use 'variables'as variables;
 
-footer {
+.footer {
     background-color: variables.$primary-color;
+    padding-top: calc(var(--separate) * -1);
+    
+    &__container {
+        display: flex;
+        gap: 70px;
+        padding: calc(var(--separate) * -1) 12px;
+    }
+    
+    &-address {
+        flex: 0 1 430px;
+
+        &__description {
+            color: variables.$bg-accent-color;
+            font-size: 14px;
+            line-height: 1.42;
+            margin-bottom: calc(var(--separate) * -1);
+        }
+
+        &__row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        &__link {
+            color: variables.$bg-accent-color;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.28;
+            text-decoration: underline;
+
+            &:hover {
+                color: variables.$text-accent-color;
+            }
+        }
+
+        &__social {
+            display: flex;
+            gap: 16px;
+
+            &-link {
+                color: variables.$bg-accent-color;
+
+                &:hover {
+                    color: variables.$text-accent-color;
+                }
+            }
+        
+            &-svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+    &-nav {
+        display: flex;
+        flex: 0 1 680px;
+        gap: 120px;
+
+        &-item {
+            width: 100%;
+        }
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__list-item {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.28;
+            margin-bottom: 16px;
+            padding-left: 18px;
+        }
+
+        &__link {
+            color: variables.$brand-light-color;
+            position: relative;
+
+            &:hover {
+                color: variables.$text-accent-color;
+
+                .footer-nav__link-svg {
+                    color: variables.$text-accent-color;
+                }
+            }
+                
+            &-svg {
+                color: variables.$bg-accent-color;
+                position: absolute;
+                top: 6px;
+                left: -18px;
+                width: 6px;
+                height: 10px;
+            }
+        }
+    }
+}
+
+.footer-address__title,
+.footer-nav__title {
+    color: variables.$bg-color;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 17px;
+}
+
+.footer-address__link,
+.footer-address__social-link,
+.footer-nav__link,
+.footer-nav__link-svg {
+    transition: color 0.5s;
 }

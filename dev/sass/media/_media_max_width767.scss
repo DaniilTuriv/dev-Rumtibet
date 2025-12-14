@@ -21,4 +21,32 @@
         display: flex;
         gap: 0;
     }
+
+    .footer__container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .footer-address {
+        flex: 0 1 231px;
+
+        &__description {
+            margin-bottom: 30px;
+        }
+
+        &__row {
+            margin-bottom: 30px;
+        }
+    }
+
+    .footer-nav {
+        flex: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 50px;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+    }
 }

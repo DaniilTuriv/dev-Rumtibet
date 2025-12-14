@@ -1,6 +1,10 @@
 @use '../variables' as variables;
 
 @media screen and (max-width: 1024px) {
+    :root {
+        --separate: 50px;
+    }
+
     .header {
         padding-top: 11px;
         padding-bottom: 20px;
@@ -226,6 +230,27 @@
             flex-direction: column;
             align-items: flex-start;
             margin-bottom: 24px;
+        }
+    }
+
+    .footer {
+        padding-top: initial;
+        
+        &__container {
+            padding-top: var(--separate);
+            padding-bottom: var(--separate);
+        }
+
+        &-address {
+            flex: 0 1 290px;
+
+            &__description {
+                margin-bottom: 30px;
+            }
+
+            &__row {
+                margin-bottom: 30px;
+            }
         }
     }
 }

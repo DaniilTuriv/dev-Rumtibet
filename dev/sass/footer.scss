@@ -6,7 +6,8 @@
     
     &__container {
         display: flex;
-        gap: 70px;
+        justify-content: space-between;
+        gap: 24px;
         padding: calc(var(--separate) * -1) 12px;
     }
     
@@ -22,7 +23,8 @@
 
         &__row {
             display: flex;
-            gap: 24px;
+            flex-wrap: wrap;
+            gap: 12px 24px;
             margin-bottom: 32px;
         }
 
@@ -59,11 +61,13 @@
 
     &-nav {
         display: flex;
+        justify-content: space-between;
         flex: 0 1 680px;
-        gap: 120px;
+        gap: 24px;
 
         &-item {
             width: 100%;
+            max-width: 280px;
         }
 
         &__title {
@@ -71,15 +75,36 @@
         }
 
         &__list-item {
+            position: relative;
             font-size: 14px;
-            font-weight: 400;
             line-height: 1.28;
             margin-bottom: 16px;
             padding-left: 18px;
+
+            &_new {
+                &:before {
+                    content: "new";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: variables.$primary-color;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 1.33;
+                    background-color: variables.$bg-accent-color;
+                    border-radius: 4px;
+                    padding: 2px 10px;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
         &__link {
             color: variables.$brand-light-color;
+            font-weight: 400;
             position: relative;
 
             &:hover {
@@ -100,6 +125,34 @@
             }
         }
     }
+
+    &__coppyright {
+        background-color: variables.$brand-dark-color;
+        padding: 24px 0;
+
+        &-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+        }
+
+        &-link {
+            color: variables.$bg-accent-color;
+            text-decoration: underline;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.28;
+
+            &_developer {
+                text-decoration: none;
+            }
+
+            &:hover {
+                color: variables.$text-accent-color;
+            }
+        }
+    }
 }
 
 .footer-address__title,
@@ -113,6 +166,7 @@
 .footer-address__link,
 .footer-address__social-link,
 .footer-nav__link,
-.footer-nav__link-svg {
+.footer-nav__link-svg,
+.footer__coppyright-link {
     transition: color 0.5s;
 }

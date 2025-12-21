@@ -146,3 +146,31 @@
         </div>
     </div>
 </div>
+
+<div class="modal modal-template modal-video" id="modal-video">
+    <button type="button" class="close-modal" data-close-modal>
+        <svg class="close-modal__svg">
+            <use href="#icon-close-modal"></use>
+        </svg>
+    </button>
+    <video class="template-video" id="video">
+        <source src="assets/img/about-video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-buttons">
+        <div class="video-parts">
+            <button class="button-part" data-current-time="10" id="part_1">10c</button>
+            <button class="button-part" data-current-time="20" id="part_2">20c</button>
+            <button class="button-part" data-current-time="30" id="part_3">30c</button>
+            <button class="button-part" data-current-time="40" id="part_4">40c</button>
+        </div>
+        <div class="video-controls">
+            <button class="button-control" id="button-play">play</button>
+            <button class="button-control" id="button-pause">pause</button>
+            <button class="button-control" id="button-stop">stop</button>
+            <button class="button-control" id="button-mute">mute</button>
+            <button class="button-control" id="button-rewind">-5s</button>
+            <button class="button-control" id="button-forward">+5s</button>
+            <input type="range" min="0" value="5" max="100" id="volume">
+        </div>
+    </div>
+</div>

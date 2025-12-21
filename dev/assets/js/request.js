@@ -51,8 +51,8 @@ submitButton.setAttribute('data-checked-button', '1')
 const submitButtonFirstStep = document.querySelector('[data-checked-button="1"]')
 
 const formConfig = {
-    errorMessage: "Усі поля обов'язкові. Будь ласка, заповніть поля.",
-    validMessage: "Обов'язкове поле заповнене ✓"
+    errorMessage: "Все поля обязательны. Пожалуйста, заполните поля.",
+    validMessage: "Обязательное поле заполнено ✓"
 }
 
 const createErrorMsg = (field, text) => {

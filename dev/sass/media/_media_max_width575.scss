@@ -56,4 +56,17 @@
     .footer__coppyright-container {
         justify-content: center;
     }
+
+    .video-buttons {
+        gap: 6px;
+        padding: 12px;
+    }
+
+    .video-controls {
+        flex-wrap: wrap;
+    }
+
+    .button-control {
+        max-width: 100px;
+    }
 }

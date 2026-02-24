@@ -1,14 +1,25 @@
+# System
 .DS_Store
-.idea
-*.ai
-*.log
-*.pdf
-*.psd
-*.sublime*
-css/*.css
-node_modules/
 Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+
+# Build
 build/
-bower_components
-package-lock.json
-.publish/
+
+# Personal
+.favorites.json
+
+# Logs
+*.log
+
+# Design files
+*.psd
+*.ai
+*.pdf
+*.sublime*
